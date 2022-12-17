@@ -1,0 +1,137 @@
+:root {
+  --base-orange: rgb(255, 191, 0);
+  --grey: #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+section {
+  width: 100%;
+  display: flex;
+}
+
+.details-container {
+  justify-content: space-between;
+  min-width: 10%;
+  border-right: 1px solid var(--grey);
+  padding: 0.2rem;
+}
+.container {
+  width: 100%;
+  padding: 2vw;
+  height: auto;
+}
+.courses-container {
+  justify-content: flex-start;
+}
+
+.card-content {
+  position: relative;
+}
+.avatar-box {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.avatar {
+  border-radius: 50%;
+}
+.image {
+  object-fit: cover;
+  width: 50%;
+}
+.grey-outline {
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+.grey-outline::before {
+  content: "";
+  width: 10%;
+  height: 2px;
+  background-color: rgb(255, 191, 0);
+}
+.rating-box {
+  justify-content: space-between;
+  padding: 1vw;
+}
+.MuiTabs-indicator {
+  background-color: rgb(255, 191, 0) !important;
+  top: 0px;
+}
+.Mui-selected {
+  background-color: white !important;
+  display: flex !important;
+  flex-direction: row !important;
+  color: grey !important;
+}
+.MuiTab-root {
+  display: flex !important;
+  flex-direction: row !important;
+}
+.course-tabs {
+  background-color: var(--grey);
+}
+.tab {
+  width: 25%;
+}
+.typography {
+  margin: 0.5rem !important;
+  text-align: justify !important;
+}
+
+.description-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem;
+}
+.description-container ul {
+  list-style: none; /* Remove default bullets */
+}
+
+.description-container article ul li::before {
+  content: "\2022"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: rgb(255, 191, 0); /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+}
+.features-list {
+  list-style: none !important;
+  border-left: 1px solid var(--grey);
+}
+.icons {
+  color: var(--base-orange);
+}
+.list-item-text {
+  text-align: right;
+}
+.list-item {
+  margin: 1rem 0;
+  border-bottom: 1px solid var(--grey);
+  padding: 1rem;
+}
+.study-header {
+  width: 100%;
+  display: flex;
+}
+.drawer-container {
+  max-width: 30%;
+  border-right: 1px solid var(--grey);
+}
