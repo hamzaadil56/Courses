@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import { Routes, Route } from "react-router-dom";
 import Study from "./components/Study";
 import Exam from "./components/Exam";
+import Result from "./components/Result";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/course/:keyword" element={<Course />} />
         <Route exact path="/course/:keyword/study" element={<Study />} />
         <Route exact path="/course/:keyword/exam" element={<Exam />} />
+        <Route exact path="/course/:keyword/result" element={<Result />} />
       </Routes>
     </div>
   );

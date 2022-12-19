@@ -5,14 +5,20 @@ import ExtensionIcon from "@mui/icons-material/Extension";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import TestDrawer from "./TestsDrawer";
 import Quiz from "./Quiz";
+import Header from "./Header";
+import { completeInstructions } from "../store/reducers/reducer";
 const Exam = () => {
   const [isQuizStarted, setQuizStarted] = useState(false);
+
   const [time, setTime] = useState(0);
 
+  const dispatch = useDispatch();
   const startQuiz = () => {
+    dispatch(completeInstructions());
     setQuizStarted(true);
     setInterval(() => {
       setTime(time + 1);
@@ -20,35 +26,9 @@ const Exam = () => {
   };
   return (
     <Box className="Exam-container">
-      <Box className="study-header">
-        <Box
-          style={{
-            width: "20%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "1rem",
-            borderBottom: "1px solid grey",
-          }}
-        >
-          <Typography>Logo Area</Typography>{" "}
-        </Box>
-        <Box
-          style={{
-            width: "80%",
-            backgroundColor: "#2196f3",
-            display: "flex",
-            justifyContent: "end",
-            alignItems: "center",
-            padding: "1rem",
-            color: "white",
-          }}
-        >
-          <Typography>2 of 7 items</Typography>
-        </Box>
-      </Box>
+      <Header />
       <Box style={{ width: "100%", display: "flex" }}>
-        <TestDrawer quizStarted={isQuizStarted} />
+        <TestDrawer />
         <Box className="test-container">
           <Typography style={{ margin: "2rem" }} variant="h4">
             {" "}

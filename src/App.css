@@ -216,3 +216,44 @@ section {
 .pageLinkActive {
   color: white;
 }
+.result-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.result-container ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.result-circle {
+  width: 10rem;
+  height: 10rem;
+
+  border-radius: 100%;
+  border: 5px solid var(--grey);
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.result-list-item {
+  display: flex;
+  justify-content: space-between !important;
+  width: 70% !important;
+  padding: 1rem;
+  border-bottom: 1px solid var(--grey);
+  width: 70%;
+  padding: 0 !important;
+}
+.drawer-item {
+  display: flex;
+  align-items: "center";
+  border-bottom: 1px solid var(--grey);
+}

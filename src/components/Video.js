@@ -3,8 +3,15 @@ import { Box } from "@mui/system";
 import { Button, Typography } from "@mui/material";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import {
+  completeSection,
+  prevSection,
+  nextSection,
+} from "../store/reducers/reducer";
+import { useDispatch } from "react-redux";
 
 const Video = () => {
+  const dispatch = useDispatch();
   return (
     <Box style={{ margin: "2rem" }}>
       <iframe
@@ -61,6 +68,7 @@ const Video = () => {
       </Box>
       <Box>
         <Button
+          onClick={() => dispatch(completeSection())}
           style={{
             backgroundColor: "var(--base-orange)",
             color: "black",
@@ -79,6 +87,7 @@ const Video = () => {
         }}
       >
         <Button
+          onClick={() => dispatch(prevSection())}
           style={{
             backgroundColor: "none",
             color: "black",
@@ -90,6 +99,7 @@ const Video = () => {
           Prev
         </Button>
         <Button
+          onClick={() => dispatch(nextSection())}
           style={{
             backgroundColor: "none",
             color: "black",

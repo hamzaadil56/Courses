@@ -1,14 +1,13 @@
 import React from "react";
 import { ListItem, Typography, ListItemText } from "@mui/material";
-
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import ConditionalIcon from "./ConditionalIcon";
 
-const DrawerItem = ({ test, isActive }) => {
+const LessonDrawerItem = ({ section, isActive }) => {
   return (
     <ListItem
+      key={section.number}
       className="drawer-item"
-      key={test.number}
       style={
         isActive
           ? { backgroundColor: "var(--grey)", color: "white" }
@@ -18,11 +17,11 @@ const DrawerItem = ({ test, isActive }) => {
       }
     >
       <InsertDriveFileOutlinedIcon style={{ color: "var(--base-orange)" }} />
-      <Typography>1.{test.number}</Typography>{" "}
-      <ListItemText style={{ margin: "0.2rem " }}>{test.title}</ListItemText>
-      <ConditionalIcon test={test} />
+      <Typography>1.{section.number + 1}</Typography>{" "}
+      <ListItemText style={{ margin: "0.2rem " }}>{section.title}</ListItemText>
+      <ConditionalIcon test={section} />
     </ListItem>
   );
 };
 
-export default DrawerItem;
+export default LessonDrawerItem;

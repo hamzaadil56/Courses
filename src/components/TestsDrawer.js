@@ -2,15 +2,13 @@ import { Box } from "@mui/system";
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { List, Typography } from "@mui/material";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemText from "@mui/material/ListItemText";
-import { tests } from "../data";
+import { useSelector } from "react-redux";
 import TestDrawerItem from "./TestDrawerItem";
-// import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
-// import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-// import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const TestDrawer = () => {
+  const { currentTestNumber, tests } = useSelector(
+    (state) => state.coursesState
+  );
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}
@@ -41,7 +39,11 @@ const TestDrawer = () => {
       </Box>
       <List>
         {tests.map((test) => (
-          <TestDrawerItem key={test.number} section={test} />
+          <TestDrawerItem
+            isActive={currentTestNumber === test.number}
+            key={test.number}
+            test={test}
+          />
         ))}
       </List>
     </Box>

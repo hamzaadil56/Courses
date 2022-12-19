@@ -9,6 +9,12 @@ import FormLabel from "@mui/material/FormLabel";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import { questions } from "../data";
 import Pagination from "react-js-pagination";
+import CountDownTimer from "./CountDown_Timer";
+import { useDispatch } from "react-redux";
+import Modal from "@mui/material/Modal";
+import Typography from "@mui/material/Typography";
+import { useNavigate, useParams } from "react-router-dom";
+import { addAnswer, completeTest, setTest } from "../store/reducers/reducer";
 
 function BpRadio(props) {
   return (
@@ -22,6 +28,13 @@ function BpRadio(props) {
 }
 
 const Quiz = () => {
+  const [userAnswers, setUserAnswers] = useState([]);
+  const navigate = useNavigate();
+  const params = useParams();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
   const [questionNumber, setQuestionNumber] = useState(1);
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -29,7 +42,29 @@ const Quiz = () => {
 
   const setCurrentPageNo = (e) => {
     setQuestionNumber(e);
+    dispatch(setTest(e));
   };
+  const saveAnswer = () => {
+    if (questionNumber === questions.length) {
+      setQuestionNumber(questionNumber);
+    } else {
+      setQuestionNumber(questionNumber + 1);
+    }
+    dispatch(completeTest());
+  };
+  console.log(userAnswers);
+  // const calculateScore = () => {
+  //   usersAnswers.forEach((answer, index) => {
+  //     if (answer === questions[index].answer) {
+  //       score += 1;
+  //     }
+  //   });
+  //   return score;
+  // };
+
+  // useEffect(() => {
+  //   calculateScore();
+  // }, [usersAnswers]);
 
   return (
     <Box className="quiz-container">
@@ -45,17 +80,11 @@ const Quiz = () => {
         <Box>
           <h4>Question {questionNumber} of 4</h4>
         </Box>
-        <Box>
+        <Box className="flex-container">
+          <CountDownTimer />
           <Button
-            style={{
-              backgroundColor: "white",
-              color: "black",
-              margin: "0 0.5rem",
-            }}
-          >
-            time
-          </Button>
-          <Button
+            onClick={handleOpen}
+            className="btn "
             style={{
               backgroundColor: "black",
               color: "white",
@@ -85,6 +114,11 @@ const Quiz = () => {
                 name="customized-radios"
               >
                 <FormControlLabel
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setUserAnswers([...userAnswers, e.target.value]);
+                    // dispatch(addAnswer(e.target.value));
+                  }}
                   className="input-label"
                   value={question.options.A}
                   control={<BpRadio />}
@@ -100,26 +134,6 @@ const Quiz = () => {
             </Box>
           ))}
 
-          {/* <FormLabel style={{ color: "black" }} id="demo-customized-radios">
-            1. True or False Question: A rose is red?
-          </FormLabel>
-          <RadioGroup
-            aria-labelledby="demo-customized-radios"
-            name="customized-radios"
-          >
-            <FormControlLabel
-              className="input-label"
-              value="yes"
-              control={<BpRadio />}
-              label="Yes"
-            />
-            <FormControlLabel
-              className="input-label"
-              value="no"
-              control={<BpRadio />}
-              label="No"
-            />
-          </RadioGroup> */}
           <Box
             style={{
               margin: "0 auto",
@@ -129,6 +143,9 @@ const Quiz = () => {
             }}
           >
             <Button
+              onClick={() => {
+                saveAnswer();
+              }}
               style={{
                 border: "1px solid var(--material-ui-pri)",
                 fontWeight: "bold",
@@ -137,7 +154,72 @@ const Quiz = () => {
             >
               Save Answer
             </Button>
+            {open && (
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: 400,
+                    bgcolor: "background.paper",
+                    boxShadow: 24,
+                    p: 4,
+                    backgroundColor: "white",
+                  }}
+                >
+                  <Typography
+                    id="modal-modal-title"
+                    variant="h6"
+                    component="h2"
+                    textAlign={"center"}
+                  >
+                    Are you sure to submit quiz?
+                  </Typography>
+                  <Box
+                    style={{
+                      margin: "1rem",
+                    }}
+                    className="flex-container"
+                  >
+                    <Button
+                      style={{
+                        backgroundColor: "var(--base-orange)",
+                        color: "black",
+                        margin: "0 1rem",
+                        fontWeight: "bold",
+                      }}
+                      onClick={handleClose}
+                    >
+                      CANCEL
+                    </Button>
+                    <Button
+                      style={{
+                        backgroundColor: "var(--base-orange)",
+                        color: "black",
+                        fontWeight: "bold",
+                        margin: "0 1rem",
+                      }}
+                      onClick={() => {
+                        dispatch(addAnswer(userAnswers));
+                        navigate(`/course/${params.keyword}/result`);
+                      }}
+                    >
+                      OK
+                    </Button>
+                  </Box>
+                </Box>
+              </Modal>
+            )}
             <Button
+              onClick={handleOpen}
+              type="submit"
               style={{
                 fontWeight: "bold",
                 backgroundColor: "var(--material-ui-pri)",

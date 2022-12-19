@@ -2,15 +2,14 @@ import { Box } from "@mui/system";
 import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { List, Typography } from "@mui/material";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import { sections } from "../data";
-import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
-import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { useSelector } from "react-redux";
+import LessonDrawerItem from "./LessonDrawerItem";
 
 const Drawer = () => {
-  const isLessonCompleted = false;
+  const { sections, currentSectionNumber } = useSelector(
+    (state) => state.coursesState
+  );
+
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}
@@ -41,36 +40,11 @@ const Drawer = () => {
       </Box>
       <List>
         {sections.map((section) => (
-          <ListItem
+          <LessonDrawerItem
+            isActive={currentSectionNumber === section.number}
             key={section.number}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              borderBottom: "1px solid var(--grey)",
-            }}
-          >
-            <InsertDriveFileOutlinedIcon
-              style={{ color: "var(--base-orange)" }}
-            />
-            <Typography>1.{section.number}</Typography>{" "}
-            <ListItemText style={{ margin: "0.2rem " }}>
-              Section# {section.number}
-            </ListItemText>
-            {isLessonCompleted ? (
-              <CheckCircleIcon
-                color="green"
-                style={{
-                  color: "green",
-                }}
-              />
-            ) : (
-              <RemoveRedEyeIcon
-                style={{
-                  color: "green",
-                }}
-              />
-            )}
-          </ListItem>
+            section={section}
+          />
         ))}
       </List>
     </Box>

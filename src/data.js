@@ -58,28 +58,32 @@ export const courses = [
 ];
 export const sections = [
   {
-    number: 1,
+    number: 0,
     title: "Section#1",
     mins: "50",
     completed: false,
+    seen: false,
+  },
+  {
+    number: 1,
+    title: "Section#2",
+    mins: "50",
+    completed: false,
+    seen: false,
   },
   {
     number: 2,
-    title: "Section#1",
+    title: "Section#3",
     mins: "50",
     completed: false,
+    seen: false,
   },
   {
     number: 3,
-    title: "Section#1",
+    title: "Section#4",
     mins: "50",
     completed: false,
-  },
-  {
-    number: 4,
-    title: "Section#1",
-    mins: "50",
-    completed: false,
+    seen: false,
   },
 ];
 export const tests = [
@@ -88,30 +92,35 @@ export const tests = [
     title: "Instructions",
     mins: "50",
     completed: false,
+    seen: false,
   },
   {
     number: 1,
     title: "TestQuestion#1",
     mins: "50",
     completed: false,
+    seen: false,
   },
   {
     number: 2,
     title: "TestQuestion#2",
     mins: "50",
     completed: false,
+    seen: false,
   },
   {
     number: 3,
     title: "TestQuestion#3",
     mins: "50",
     completed: false,
+    seen: false,
   },
   {
     number: 4,
     title: "TestQuestion#4",
     mins: "50",
     completed: false,
+    seen: false,
   },
 ];
 export const questions = [
@@ -140,7 +149,7 @@ export const questions = [
       A: "yes",
       B: "no",
     },
-    correctAnswer: "yes",
+    correctAnswer: "no",
   },
   {
     number: 4,
