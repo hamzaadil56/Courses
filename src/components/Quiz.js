@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -23,43 +23,14 @@ function BpRadio(props) {
 
 const Quiz = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [time, setTime] = useState(10);
-  console.log(time, "time");
   const capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
-  //   const startQuiz = () => {
-  //     if (time === 0) {
-  //       clearInterval();
-  //     }
-  //     setTimeout(() => {
-  //       setTime((prevState) => (prevState = time - 1));
-  //     }, 1000);
-  //   };
-
-  if (time === 0) {
-    clearInterval(time);
-  }
   const setCurrentPageNo = (e) => {
     setQuestionNumber(e);
   };
 
-  //   const saveAnswer=()=>{
-
-  //   }
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime((time) => time - 1);
-    }, 1000);
-    if (time === 0) {
-      setTime(0);
-      clearInterval(interval);
-    }
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
   return (
     <Box className="quiz-container">
       <Box
