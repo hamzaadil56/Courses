@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import React, { useState } from "react";
+import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { List, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
@@ -10,7 +10,7 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const Drawer = () => {
-  const [isLessonCompleted, setLessonCompleted] = useState(false);
+  const isLessonCompleted = false;
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}
