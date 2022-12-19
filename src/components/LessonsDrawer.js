@@ -1,13 +1,16 @@
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { List, Typography } from "@mui/material";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { sections } from "../data";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const Drawer = () => {
+  const [isLessonCompleted, setLessonCompleted] = useState(false);
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}
@@ -37,8 +40,9 @@ const Drawer = () => {
         </span>
       </Box>
       <List>
-        {sections.map((sectionNumber) => (
+        {sections.map((section) => (
           <ListItem
+            key={section.number}
             style={{
               display: "flex",
               alignItems: "center",
@@ -48,10 +52,24 @@ const Drawer = () => {
             <InsertDriveFileOutlinedIcon
               style={{ color: "var(--base-orange)" }}
             />
-            <Typography>1.{sectionNumber}</Typography>{" "}
+            <Typography>1.{section.number}</Typography>{" "}
             <ListItemText style={{ margin: "0.2rem " }}>
-              Section# {sectionNumber}
+              Section# {section.number}
             </ListItemText>
+            {isLessonCompleted ? (
+              <CheckCircleIcon
+                color="green"
+                style={{
+                  color: "green",
+                }}
+              />
+            ) : (
+              <RemoveRedEyeIcon
+                style={{
+                  color: "green",
+                }}
+              />
+            )}
           </ListItem>
         ))}
       </List>

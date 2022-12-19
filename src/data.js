@@ -56,4 +56,99 @@ export const courses = [
     date: "2021-08-01",
   },
 ];
-export const sections = [1, 2, 3, 4, 5, 6];
+export const sections = [
+  {
+    number: 1,
+    title: "Section#1",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 2,
+    title: "Section#1",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 3,
+    title: "Section#1",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 4,
+    title: "Section#1",
+    mins: "50",
+    completed: false,
+  },
+];
+export const tests = [
+  {
+    number: 0,
+    title: "Instructions",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 1,
+    title: "TestQuestion#1",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 2,
+    title: "TestQuestion#2",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 3,
+    title: "TestQuestion#3",
+    mins: "50",
+    completed: false,
+  },
+  {
+    number: 4,
+    title: "TestQuestion#4",
+    mins: "50",
+    completed: false,
+  },
+];
+export const questions = [
+  {
+    number: 1,
+    question: "True or False Question: A rose is red?",
+    options: {
+      A: "yes",
+      B: "no",
+    },
+    correctAnswer: "yes",
+  },
+  {
+    number: 2,
+    question: "True or False Question: A ball is circle or sphere?",
+    options: {
+      A: "circle",
+      B: "sphere",
+    },
+    correctAnswer: "sphere",
+  },
+  {
+    number: 3,
+    question: "True or False Question: A cube is 2D?",
+    options: {
+      A: "yes",
+      B: "no",
+    },
+    correctAnswer: "yes",
+  },
+  {
+    number: 4,
+    question: "True or False Question: A right angled triangle has 90 degree?",
+    options: {
+      A: "yes",
+      B: "no",
+    },
+    correctAnswer: "yes",
+  },
+];

@@ -50,7 +50,12 @@ const Course = () => {
           >
             Study
           </Button>
-          <Button variant="outlined">Exam</Button>
+          <Button
+            onClick={() => navigate(`/course/${params.keyword}/exam`)}
+            variant="outlined"
+          >
+            Exam
+          </Button>
         </Box>
       </section>
       <Box className="container">
@@ -90,42 +95,41 @@ const Course = () => {
               <Typography className="typography" variant="h6">
                 LEARNING OUTCOMES
               </Typography>
-              <Typography className="typography" variant="p" component="p">
-                <ul>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Hic, id?
-                  </li>
-                </ul>
-              </Typography>
+
+              <ul>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+                <li>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic,
+                  id?
+                </li>
+              </ul>
             </article>
           </Box>
         </Box>

@@ -1,6 +1,7 @@
 :root {
   --base-orange: rgb(255, 191, 0);
   --grey: #e0e0e0;
+  --material-ui-pri: #1769aa;
 }
 
 * {
@@ -132,6 +133,86 @@ section {
   display: flex;
 }
 .drawer-container {
-  max-width: 30%;
+  max-width: 40%;
+  min-width: 25%;
   border-right: 1px solid var(--grey);
+}
+.drawer {
+  cursor: pointer;
+}
+.test-container {
+  position: relative;
+  width: 70%;
+  padding: 2rem;
+}
+.form {
+  margin: 2rem 0 !important;
+  width: 100%;
+}
+.input-label {
+  border: 1px solid var(--grey);
+  margin: 1rem 0 !important;
+}
+.pagination-button {
+  padding: 0.5rem;
+  background: none;
+  cursor: pointer;
+  border-radius: 10%;
+  margin: 2px;
+  border: 1px solid var(--grey);
+}
+.question {
+  display: none;
+}
+.active-question {
+  display: block;
+}
+.paginationBox {
+  display: flex;
+  justify-content: center;
+  margin: 6vmax;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.page-item {
+  background-color: rgb(255, 255, 255);
+  list-style: none;
+  border: 1px solid rgba(0, 0, 0, 0.178);
+  padding: 1vmax 1.5vmax;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.page-item:first-child {
+  border-radius: 5px 0 0 5px;
+}
+
+.page-item:last-child {
+  border-radius: 0 5px 5px 0;
+}
+.page-link {
+  text-decoration: none;
+  font: 300 0.7vmax "Poppins";
+  color: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.page-item:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.page-item:hover .page-link {
+  color: rgb(0, 0, 0);
+}
+
+.pageItemActive {
+  background-color: black;
+}
+
+.pageLinkActive {
+  color: white;
 }
