@@ -1,10 +1,9 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import ProgressBar from "./ProgressBar";
 import { useSelector } from "react-redux";
-
+import ExamProgressBar from "./ExamProgressBar";
 const Header = () => {
-  const { currentSectionNumber, sections } = useSelector(
+  const { currentTestNumber, tests } = useSelector(
     (state) => state.coursesState
   );
   return (
@@ -32,9 +31,9 @@ const Header = () => {
           color: "white",
         }}
       >
-        <ProgressBar />
+        <ExamProgressBar />
         <Typography>
-          {currentSectionNumber}of {sections.length} items
+          {currentTestNumber} of {tests.length} items
         </Typography>
       </Box>
     </Box>

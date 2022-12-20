@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 
 import TestDrawer from "./TestsDrawer";
 import Quiz from "./Quiz";
-import Header from "./Header";
+import ExamHeader from "./ExamHeader";
 import { completeInstructions } from "../store/reducers/reducer";
 const Exam = () => {
   const [isQuizStarted, setQuizStarted] = useState(false);
@@ -26,7 +26,7 @@ const Exam = () => {
   };
   return (
     <Box className="Exam-container">
-      <Header />
+      <ExamHeader />
       <Box className="exam-box" style={{ width: "100%", display: "flex" }}>
         <TestDrawer />
         <Box className="test-container">

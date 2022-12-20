@@ -35,11 +35,11 @@ LinearProgressWithLabel.propTypes = {
 };
 
 export default function LinearWithValueLabel() {
-  const { currentSectionNumber, sections } = useSelector(
+  const { currentTestNumber, tests } = useSelector(
     (state) => state.coursesState
   );
 
-  let value = (currentSectionNumber / sections.length) * 100;
+  let value = (currentTestNumber / tests.length) * 100;
   return (
     <Box sx={{ width: "100%" }}>
       <LinearProgressWithLabel value={value} />
