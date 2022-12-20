@@ -15,7 +15,9 @@ const Course = () => {
   const params = useParams();
   return (
     <Box className="container">
-      <Typography variant="h2">{params.keyword}</Typography>
+      <Typography className="course-heading" variant="h2">
+        {params.keyword}
+      </Typography>
       <section>
         <Box
           style={{ width: "20%", justifyContent: "space-around" }}
@@ -23,7 +25,9 @@ const Course = () => {
         >
           <Avatar src={"../images/avatar.png"} />
           <Box>
-            <Typography variant="h6">HeadofDeptm</Typography>
+            <Typography className="section-heading" variant="h6">
+              HeadofDeptm
+            </Typography>
             <Typography variant="h6">User#</Typography>
           </Box>
         </Box>
@@ -45,12 +49,14 @@ const Course = () => {
           className="flex-container"
         >
           <Button
+            className="btn"
             onClick={() => navigate(`/course/${params.keyword}/study`)}
             variant="contained"
           >
             Study
           </Button>
           <Button
+            className="btn"
             onClick={() => navigate(`/course/${params.keyword}/exam`)}
             variant="outlined"
           >
@@ -63,7 +69,7 @@ const Course = () => {
       </Box>
       <CourseTabs />
       <Box className="description-container">
-        <Box style={{ width: "60%" }}>
+        <Box className="description-container2" style={{ width: "60%" }}>
           <Box>
             <article>
               <Typography className="typography" variant="h6">

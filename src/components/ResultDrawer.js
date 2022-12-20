@@ -3,20 +3,17 @@ import React from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { List, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import LessonDrawerItem from "./LessonDrawerItem";
+import TestDrawerItem from "./TestDrawerItem";
 
-const Drawer = () => {
-  const { sections, currentSectionNumber } = useSelector(
-    (state) => state.coursesState
-  );
-
+const TestDrawer = () => {
+  const { tests } = useSelector((state) => state.coursesState);
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}
-      className="drawer-container "
+      className="drawer-container"
     >
       <Box
-        className="drawer "
+        className="drawer"
         style={{
           display: "flex",
           alignItems: "center",
@@ -34,21 +31,17 @@ const Drawer = () => {
             margin={"0 2rem  "}
             variant="p"
           >
-            2/7
+            3/7
           </Typography>
         </span>
       </Box>
       <List>
-        {sections.map((section) => (
-          <LessonDrawerItem
-            isActive={currentSectionNumber === section.number}
-            key={section.number}
-            section={section}
-          />
+        {tests.map((test) => (
+          <TestDrawerItem isActive={false} key={test.number} test={test} />
         ))}
       </List>
     </Box>
   );
 };
 
-export default Drawer;
+export default TestDrawer;

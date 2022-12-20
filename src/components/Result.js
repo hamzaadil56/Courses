@@ -1,16 +1,19 @@
 import React from "react";
 import Header from "./Header";
-import TestDrawer from "./TestsDrawer";
 import { Box, Button, List, ListItem, Rating, Typography } from "@mui/material";
 import CoursesTable from "./CoursesTable";
+import ResultDrawer from "./ResultDrawer";
 
 const Result = () => {
   return (
     <Box>
       <Header />
-      <Box style={{ width: "100%", display: "flex" }}>
-        <TestDrawer />
-        <Box style={{ width: "70%", display: "flex" }}>
+      <Box className="exam-box" style={{ width: "100%", display: "flex" }}>
+        <ResultDrawer />
+        <Box
+          className="result-parent"
+          style={{ width: "70%", display: "flex" }}
+        >
           <Box className="result-container ">
             <Typography variant="h4">TEST TITLE...</Typography>
             <Box className="result-circle">

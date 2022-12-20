@@ -65,16 +65,11 @@ export const counterSlice = createSlice({
     completeTest: (state) => {
       if (state.currentTestNumber < state.tests.length) {
         state.tests[state.currentTestNumber].completed = true;
-        state.currentTestNumber += 1;
       }
     },
     completeSection: (state) => {
       if (state.currentSectionNumber < state.sections.length) {
         state.sections[state.currentSectionNumber].completed = true;
-        state.currentSectionNumber += 1;
-      }
-      if (state.currentSectionNumber === state.sections.length) {
-        state.currentSectionNumber = state.sections.length - 1;
       }
     },
     prevSection: (state) => {
@@ -82,7 +77,11 @@ export const counterSlice = createSlice({
         state.currentSectionNumber -= 1;
       }
     },
-    nextSection: (state) => {
+    nextSection: (state, action) => {
+      if (action.payload) {
+        state.currentSectionNumber = action.payload;
+        return;
+      }
       if (state.currentSectionNumber < state.sections.length) {
         state.sections[state.currentSectionNumber].seen = true;
         state.currentSectionNumber += 1;

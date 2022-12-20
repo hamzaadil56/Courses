@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import ProgressBar from "./ProgressBar";
 
 const Header = () => {
   return (
@@ -21,12 +22,13 @@ const Header = () => {
           width: "80%",
           backgroundColor: "#2196f3",
           display: "flex",
-          justifyContent: "end",
+          justifyContent: "flex-end",
           alignItems: "center",
           padding: "1rem",
           color: "white",
         }}
       >
+        <ProgressBar />
         <Typography>2 of 7 items</Typography>
       </Box>
     </Box>

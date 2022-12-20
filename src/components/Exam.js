@@ -27,7 +27,7 @@ const Exam = () => {
   return (
     <Box className="Exam-container">
       <Header />
-      <Box style={{ width: "100%", display: "flex" }}>
+      <Box className="exam-box" style={{ width: "100%", display: "flex" }}>
         <TestDrawer />
         <Box className="test-container">
           <Typography style={{ margin: "2rem" }} variant="h4">
@@ -54,7 +54,7 @@ const Exam = () => {
                       color: "var(--base-orange)",
                     }}
                   />{" "}
-                  Questions
+                  Questions : 4
                 </Box>
                 <Box
                   style={{ marginRight: " 2rem" }}
@@ -66,7 +66,7 @@ const Exam = () => {
                       color: "var(--base-orange)",
                     }}
                   />
-                  Duration
+                  Duration : 00:10:00
                 </Box>
                 <Box
                   style={{ marginRight: " 2rem" }}
@@ -78,7 +78,7 @@ const Exam = () => {
                       color: "var(--base-orange)",
                     }}
                   />
-                  Passing Grade
+                  Passing Grade : 80%
                 </Box>
               </Box>
               <Box style={{ margin: " 2rem" }}>

@@ -9,6 +9,7 @@ import {
   nextSection,
 } from "../store/reducers/reducer";
 import { useDispatch } from "react-redux";
+import DoneIcon from "@mui/icons-material/Done";
 
 const Video = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const Video = () => {
         allowFullScreen
       ></iframe>
       <Box
+        className="section-description"
         style={{
           margin: "2rem 0",
           textAlign: "justify",
@@ -75,7 +77,7 @@ const Video = () => {
             fontWeight: "bold",
           }}
         >
-          Complete
+          <DoneIcon /> Completed
         </Button>
       </Box>
       <Box

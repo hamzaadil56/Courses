@@ -45,11 +45,6 @@ const Quiz = () => {
     dispatch(setTest(e));
   };
   const saveAnswer = () => {
-    if (questionNumber === questions.length) {
-      setQuestionNumber(questionNumber);
-    } else {
-      setQuestionNumber(questionNumber + 1);
-    }
     dispatch(completeTest());
   };
   console.log(userAnswers);
@@ -81,7 +76,7 @@ const Quiz = () => {
           <h4>Question {questionNumber} of 4</h4>
         </Box>
         <Box className="flex-container">
-          <CountDownTimer />
+          <CountDownTimer userAnswers={userAnswers} />
           <Button
             onClick={handleOpen}
             className="btn "
