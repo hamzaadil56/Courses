@@ -9,7 +9,7 @@ const Drawer = () => {
   const { sections, currentSectionNumber } = useSelector(
     (state) => state.coursesState
   );
-
+  console.log(currentSectionNumber);
   return (
     <Box
       style={{ padding: "0.5rem", height: "100vh" }}

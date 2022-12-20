@@ -2,7 +2,7 @@ import React from "react";
 import { ListItem, Typography, ListItemText } from "@mui/material";
 import InsertDriveFileOutlinedIcon from "@mui/icons-material/InsertDriveFileOutlined";
 import ConditionalIcon from "./ConditionalIcon";
-import { nextSection } from "../store/reducers/reducer";
+import { setSection } from "../store/reducers/reducer";
 import { useDispatch } from "react-redux";
 
 const LessonDrawerItem = ({ section, isActive }) => {
@@ -10,7 +10,7 @@ const LessonDrawerItem = ({ section, isActive }) => {
   return (
     <ListItem
       onClick={() => {
-        dispatch(nextSection(section.number));
+        dispatch(setSection(section.number));
       }}
       key={section.number}
       className="drawer-item"

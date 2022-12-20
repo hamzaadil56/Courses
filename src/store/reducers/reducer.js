@@ -77,11 +77,10 @@ export const counterSlice = createSlice({
         state.currentSectionNumber -= 1;
       }
     },
+    setSection: (state, action) => {
+      state.currentSectionNumber = action.payload;
+    },
     nextSection: (state, action) => {
-      if (action.payload) {
-        state.currentSectionNumber = action.payload;
-        return;
-      }
       if (state.currentSectionNumber < state.sections.length) {
         state.sections[state.currentSectionNumber].seen = true;
         state.currentSectionNumber += 1;
@@ -103,6 +102,7 @@ export const {
   nextSection,
   setTest,
   prevSection,
+  setSection,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
