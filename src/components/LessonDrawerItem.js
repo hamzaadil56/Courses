@@ -16,9 +16,14 @@ const LessonDrawerItem = ({ section, isActive }) => {
       className="drawer-item"
       style={
         isActive
-          ? { backgroundColor: "var(--grey)", color: "white" }
+          ? {
+              backgroundColor: "var(--grey)",
+              color: "white",
+              cursor: "pointer",
+            }
           : {
               backgroundColor: "white",
+              cursor: "pointer",
             }
       }
     >

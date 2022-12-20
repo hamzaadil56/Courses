@@ -11,9 +11,14 @@ const DrawerItem = ({ test, isActive }) => {
       key={test.number}
       style={
         isActive
-          ? { backgroundColor: "var(--grey)", color: "white" }
+          ? {
+              backgroundColor: "var(--grey)",
+              color: "white",
+              cursor: "pointer",
+            }
           : {
               backgroundColor: "white",
+              cursor: "pointer",
             }
       }
     >
